@@ -4,13 +4,13 @@ RTC_DS1307 rtc;
 char TimeStamp[20]; // char*
 // char* Weekdays[] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-char* GetTimeStamp() {
+String GetTimeStamp() {
   DateTime now = rtc.now();
   sprintf(TimeStamp,"%4d-%02d-%02d %02d:%02d:%02d", now.year(), now.month(), now.day(), now.hour(), now.minute(), now.second());
   return TimeStamp;
 }
 
-void RTC_Status() { 
+void Activate_RTC() { 
   // RTC Online?
   if (! rtc.begin()) {
     Serial.print("RTC offline! ");
